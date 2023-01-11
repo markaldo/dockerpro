@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival Kit Shop</title>
+    <style>
+        body{
+         background-repeat: none;
+         color: black;
+         font-size: large;
+         font-style: italic;}
+         table, th, td {
+            border: 1px solid rgb(126, 119, 56);
+         }
+         div, span {
+            display: inline-block;
+          }
+      </style>
+    </head>
+    <body>
+      <a href="/logout">logout</a>
+        <p>LOGISTICS MANAGEMENT SYSTEM OPTIONS</p>
+   <form action="/option" method="POST">
+      <input type="submit" name="submit" value="Delivery" style="color: green;"/>
+      <input type="submit" name="submit" value="Stock" style="color: purple"/>
+      <input type="submit" name="submit" value="Sales" style="color: blue"/>
+      <input type="submit" name="submit" value="Costs" style="color: maroon"/>
+      <input type="submit" name="submit" value="Graph" style="color: red;"/>
+   </form> 
+
+<p style="text-align:left">Batch Details As Per Delivery</p>
+
+<div class="container">
+   {% with messages = get_flashed_messages() %}
+      {% if messages %}
+         {% for message in messages %}
+             {{ message }}
+         {% endfor %}
+      {% endif %}
+   {% endwith %}
+</div>
+    <table>
+        <tr>
+           <th style="text-align:left;">BATCH</th>
+           <th style="text-align:left;">PRICE</th>
+           <th style="text-align:left;">DATE</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+           <td style="width:250px">{{row[1]}}</td>
+           <td style="width:250px">$  {{row[2]}}.00</td>
+           <td style="width:250px">{{row[3]}}</td>
+           <td style="width:50px"><a href="/edit/{{row[0]}}">Update</a></td>
+           <td style="width:50px"><a href="/delete/{{row[0]}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        
+     </table>
+     <hr>
+    
+<div> 
+   <span>
+     <form id="form" action="/create" method="POST">
+      <label for="batch">batch supplier name:</label><br>
+      <input type="text" id="batch" name="batch"/><br>
+      <br>
+      <label for="price">total price</label><br>
+      <input type="number" id="price" name="price"/><br>
+      <input type="submit" name="submit" value="create" style="color: green;"/>
+     </form>
+   </span>
+   <span>
+
+   </span>
+   </div>
+    </body>
+</html>

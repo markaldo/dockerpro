@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  db:
+    build: ./db
+  db1:
+    build: ./db1
+    restart: always
+    ports:
+      - 5432:5432
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  kit:
+    build: ./kit
+    volumes:
+      - ./kit:/app
+    ports:
+      - 5001:80
+    depends_on:
+      - db
+  prices:
+    build: ./prices
+    volumes:
+      - ./prices:/app
+    ports:
+      - 5002:80
+    depends_on:
+      - kit
+  site:
+    build: ./site
+    volumes:
+      - ./site:/src
+    ports:
+      - 5000:80
+    depends_on:
+      - prices
+  logistics:
+    build: ./logistics
+    volumes:
+      - ./logistics:/app
+    ports:
+      - 5003:80
+    depends_on:
+      - db1
+  
+ 
+    
+    
