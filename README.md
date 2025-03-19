@@ -4,7 +4,7 @@
 
 ## Description
 
-`dockerpro` is a web-based system designed to manage company stock, sales, and logistics. It's built using a combination of technologies, including Python, PHP, HTML, JavaScript, and Docker. The system aims to provide a centralized platform for businesses to track inventory, manage sales orders, and streamline their logistics operations. It uses Docker for easy deployment and environment consistency.
+Is a web-based system designed to manage company stock, sales, and logistics. It's built using a combination of technologies, including Python, PHP, HTML, JavaScript, and Docker. The system aims to provide a centralized platform for businesses to track inventory, manage sales orders, and streamline their logistics operations. It uses Docker for easy deployment and environment consistency.
 
 ## Key Features
 
