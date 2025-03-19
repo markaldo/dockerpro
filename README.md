@@ -1,4 +1,4 @@
-# dockerpro
+# Company Inventory Management System
 
 **Company Stock, Sales, and Logistics Management System**
 
